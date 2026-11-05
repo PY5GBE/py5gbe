@@ -1,0 +1,174 @@
+<!doctype html>
+<!-- public/index.html - Pagina PY5GBE para iframe no QRZ -->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PY5GBE - GEArBE</title>
+<style>
+html,body{margin:0;padding:0;background:#FDF2E6}
+#gbe .p{min-height:520px}
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Barlow:wght@400;600&display=swap');
+#gbe{max-width:100%;margin:0 auto;font-family:'Barlow',Arial,sans-serif;color:#2A170D;background:#FDF2E6;border:2px solid #2A170D;line-height:1.5;text-align:left}
+#gbe *{box-sizing:border-box}
+#gbe .r{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+#gbe .cn{font-family:'Barlow Condensed','Arial Narrow',Impact,sans-serif}
+#gbe .hd{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 24px;background:linear-gradient(118deg,#E55A0E 0,#E55A0E 46%,#FDF2E6 46%,#FDF2E6 100%)}
+#gbe .logos{display:flex;gap:12px;margin-bottom:14px}
+#gbe .lg1{width:104px;height:104px;border-radius:50%;border:4px solid #FDF2E6;display:block}
+#gbe .lg2{width:104px;height:104px;border-radius:50%;background:#fff;padding:6px;display:block;overflow:hidden}
+#gbe .lg2 img{border-radius:50%}
+#gbe .lg2 img{width:100%;height:100%;display:block}
+#gbe .gname{color:#fff;font-weight:600;letter-spacing:3px;font-size:14px;line-height:1.55;margin:0}
+#gbe .call{text-align:right}
+#gbe .cs{font-weight:800;font-size:92px;line-height:.9;color:#2A170D;margin:0}
+#gbe .morse{color:#E55A0E;font-weight:800;letter-spacing:5px;font-size:20px;margin:8px 0 0}
+#gbe .cq{font-weight:800;letter-spacing:8px;font-size:24px;margin:4px 0 0;color:#2A170D}
+#gbe .bar{background:#E55A0E;display:flex;justify-content:flex-end;gap:8px;padding:6px 16px}
+#gbe .bar label{cursor:pointer;line-height:0}
+#gbe .bar img{width:32px;height:22px;border:2px solid transparent;opacity:.55;display:block}
+#gbe .tabs{display:flex;flex-wrap:wrap;gap:6px;padding:18px 24px 0}
+#gbe .tabs label{cursor:pointer;font-family:'Barlow Condensed','Arial Narrow',Impact,sans-serif;font-weight:600;letter-spacing:2px;font-size:16px;text-transform:uppercase;padding:6px 14px;border:2px solid #2A170D;color:#2A170D;background:transparent}
+#gbe .p{display:none;padding:18px 24px 26px;font-size:16px}
+#gbe .p p{margin:0 0 10px}
+#gbe .kv{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+#gbe .kv div{flex:1 1 150px;border:2px solid #2A170D;padding:8px 12px;font-size:15px}
+#gbe .kv b{display:block;font-family:'Barlow Condensed','Arial Narrow',Impact,sans-serif;font-weight:600;letter-spacing:2px;font-size:13px;color:#E55A0E;text-transform:uppercase}
+#gbe table{width:100%;border-collapse:collapse;font-size:15px;background:transparent;border:0}
+#gbe th,#gbe td{padding:8px 10px;text-align:left;border:0;border-bottom:1px solid #d9c6b4;vertical-align:top;background:transparent;color:#2A170D}
+#gbe th{font-family:'Barlow Condensed','Arial Narrow',Impact,sans-serif;font-weight:600;letter-spacing:2px;font-size:14px;text-transform:uppercase;border-bottom:2px solid #2A170D}
+#gbe td.ic{font-family:'Barlow Condensed','Arial Narrow',Impact,sans-serif;font-weight:800;font-size:18px;white-space:nowrap}
+#gbe .map{margin-top:12px;border:2px solid #2A170D;line-height:0}
+#gbe .map iframe{width:100%;height:280px;border:0;display:block}
+#gbe a.lk{color:#E55A0E;font-weight:600;text-decoration:none}
+#gbe .L-es,#gbe .L-en{display:none}
+#gbe-es:checked~.w .L-pt,#gbe-en:checked~.w .L-pt{display:none}
+#gbe-es:checked~.w .L-es,#gbe-en:checked~.w .L-en{display:inline}
+#gbe-pt:checked~.w label[for=gbe-pt] img,#gbe-es:checked~.w label[for=gbe-es] img,#gbe-en:checked~.w label[for=gbe-en] img{opacity:1;border-color:#FDF2E6}
+#gbe-t1:checked~.w .p1,#gbe-t2:checked~.w .p2,#gbe-t3:checked~.w .p3,#gbe-t4:checked~.w .p4,#gbe-t5:checked~.w .p5{display:block}
+#gbe-t1:checked~.w label[for=gbe-t1],#gbe-t2:checked~.w label[for=gbe-t2],#gbe-t3:checked~.w label[for=gbe-t3],#gbe-t4:checked~.w label[for=gbe-t4],#gbe-t5:checked~.w label[for=gbe-t5]{background:#E55A0E;color:#fff}
+@media (max-width:620px){
+#gbe .hd{flex-direction:column;align-items:flex-start;background:#E55A0E}
+#gbe .call{text-align:left}
+#gbe .cs{font-size:64px;color:#FDF2E6}
+#gbe .morse{color:#2A170D;font-size:16px}
+#gbe .cq{color:#FDF2E6;font-size:18px}
+#gbe .lg1,#gbe .lg2{width:80px;height:80px}
+}
+</style>
+</head>
+<body>
+<div id="gbe">
+<input class="r" type="radio" name="gbe-lang" id="gbe-pt" checked>
+<input class="r" type="radio" name="gbe-lang" id="gbe-es">
+<input class="r" type="radio" name="gbe-lang" id="gbe-en">
+<input class="r" type="radio" name="gbe-tab" id="gbe-t1" checked>
+<input class="r" type="radio" name="gbe-tab" id="gbe-t2">
+<input class="r" type="radio" name="gbe-tab" id="gbe-t3">
+<input class="r" type="radio" name="gbe-tab" id="gbe-t4">
+<input class="r" type="radio" name="gbe-tab" id="gbe-t5">
+
+<div class="w">
+
+<div class="hd">
+  <div>
+    <div class="logos">
+      <img class="lg1" src="radioescotismo.png" alt="Radioescotismo">
+      <div class="lg2"><img src="logo_eppinghaus.png" alt="GEArBE"></div>
+    </div>
+    <p class="gname cn">GRUPO ESCOTEIRO DO AR<br>BRIGADEIRO EPPINGHAUS<br>04/PR<br>CURITIBA &middot; PARAN&Aacute;</p>
+  </div>
+  <div class="call">
+    <p class="cs cn">PY5GBE</p>
+    <p class="morse cn">.--. -.-- ..... --. -... .</p>
+    <p class="cq cn">CQ &middot; QSL &middot; 73</p>
+  </div>
+</div>
+
+<div class="bar">
+  <label for="gbe-pt" title="Portugu&ecirc;s"><img src="https://flagcdn.com/w40/br.png" alt="PT-BR"></label>
+  <label for="gbe-es" title="Espa&ntilde;ol"><img src="https://flagcdn.com/w40/es.png" alt="ES"></label>
+  <label for="gbe-en" title="English"><img src="https://flagcdn.com/w40/us.png" alt="EN"></label>
+</div>
+
+<div class="tabs">
+  <label for="gbe-t1"><span class="L-pt">In&iacute;cio</span><span class="L-es">Inicio</span><span class="L-en">Home</span></label>
+  <label for="gbe-t2"><span class="L-pt">O Grupo</span><span class="L-es">El Grupo</span><span class="L-en">The Group</span></label>
+  <label for="gbe-t3"><span class="L-pt">Esta&ccedil;&atilde;o</span><span class="L-es">Estaci&oacute;n</span><span class="L-en">Station</span></label>
+  <label for="gbe-t4"><span class="L-pt">Radioamadores</span><span class="L-es">Radioaficionados</span><span class="L-en">Radio Amateurs</span></label>
+  <label for="gbe-t5">QSL</label>
+</div>
+
+<div class="p p1">
+  <p>
+    <span class="L-pt">Bem-vindo &agrave; esta&ccedil;&atilde;o do <b>Grupo de Escoteiros do Ar Brigadeiro Eppinghaus &mdash; 4&ordm;/PR</b>, em Curitiba.</span>
+    <span class="L-es">Bienvenido a la estaci&oacute;n del <b>Grupo Scout del Aire Brigadeiro Eppinghaus &mdash; 4&ordm;/PR</b>, en Curitiba, Brasil.</span>
+    <span class="L-en">Welcome to the station of the <b>Brigadeiro Eppinghaus Air Scout Group &mdash; 4th/PR</b>, in Curitiba, Brazil.</span>
+  </p>
+  <div class="kv">
+    <div><b><span class="L-pt">Funda&ccedil;&atilde;o</span><span class="L-es">Fundaci&oacute;n</span><span class="L-en">Founded</span></b>18.04.1975</div>
+    <div><b><span class="L-pt">Local</span><span class="L-es">Ubicaci&oacute;n</span><span class="L-en">Location</span></b>Bacacheri, Curitiba-PR</div>
+    <div><b>Grid</b>GG54jo</div>
+    <div><b><span class="L-pt">Zonas</span><span class="L-es">Zonas</span><span class="L-en">Zones</span></b>CQ 11 &middot; ITU 15</div>
+  </div>
+</div>
+
+<div class="p p2">
+  <p>
+    <span class="L-pt">Fundado em 1975, em Curitiba (PR), o Grupo Escoteiro Brigadeiro Eppinghaus tem como miss&atilde;o formar jovens cidad&atilde;os, por meio do m&eacute;todo escoteiro, promovendo valores como lideran&ccedil;a, responsabilidade, respeito ao pr&oacute;ximo e amor &agrave; natureza.</span>
+    <span class="L-es">Fundado en 1975, en Curitiba (PR), el Grupo Scout Brigadeiro Eppinghaus tiene como misi&oacute;n formar j&oacute;venes ciudadanos, a trav&eacute;s del m&eacute;todo scout, promoviendo valores como el liderazgo, la responsabilidad, el respeto al pr&oacute;jimo y el amor a la naturaleza.</span>
+    <span class="L-en">Founded in 1975 in Curitiba (PR), Brazil, the Brigadeiro Eppinghaus Scout Group's mission is to develop young citizens through the Scout Method, promoting values such as leadership, responsibility, respect for others and love of nature.</span>
+  </p>
+  <div class="kv">
+    <div><b><span class="L-pt">Endere&ccedil;o</span><span class="L-es">Direcci&oacute;n</span><span class="L-en">Address</span></b>Rua Sargento Alpendre, 12 &middot; Bacacheri<br>Curitiba-PR &middot; CEP 82515-120 &middot; <span class="L-pt">Brasil</span><span class="L-es">Brasil</span><span class="L-en">Brazil</span></div>
+    <div><b><span class="L-pt">Coordenadas</span><span class="L-es">Coordenadas</span><span class="L-en">Coordinates</span></b>25&deg; 24' 06&quot; S &middot; 49&deg; 13' 45&quot; W<br>-25.40178, -49.22921</div>
+  </div>
+  <div class="map">
+    <iframe src="https://maps.google.com/maps?q=-25.401779,-49.229207&amp;z=16&amp;output=embed" loading="lazy" title="Mapa GEArBE"></iframe>
+  </div>
+  <p style="margin-top:8px"><a class="lk" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=-25.401779,-49.229207"><span class="L-pt">Abrir no Google Maps</span><span class="L-es">Abrir en Google Maps</span><span class="L-en">Open in Google Maps</span> &rarr;</a></p>
+</div>
+
+<div class="p p3">
+  <div class="kv">
+    <div><b><span class="L-pt">R&aacute;dio</span><span class="L-es">Radio</span><span class="L-en">Transceiver</span></b>Yaesu FT-9700</div>
+    <div><b><span class="L-pt">Antena</span><span class="L-es">Antena</span><span class="L-en">Antenna</span></b><span class="L-pt">Dipolo 10 m, 40 m e 80 m</span><span class="L-es">Dipolo 10 m, 40 m y 80 m</span><span class="L-en">Dipole 10 m, 40 m and 80 m</span></div>
+  </div>
+</div>
+
+<div class="p p4">
+  <table>
+    <tr>
+      <th><span class="L-pt">Indicativo</span><span class="L-es">Indicativo</span><span class="L-en">Callsign</span></th>
+      <th><span class="L-pt">Nome</span><span class="L-es">Nombre</span><span class="L-en">Name</span></th>
+      <th><span class="L-pt">Fun&ccedil;&atilde;o</span><span class="L-es">Funci&oacute;n</span><span class="L-en">Role</span></th>
+    </tr>
+    <tr>
+      <td class="ic">PU4MVO</td>
+      <td>Marco V&eacute;io</td>
+      <td><span class="L-pt">Diretoria GEArBE &middot; Radioescotista PT 1217</span><span class="L-es">Directiva GEArBE &middot; Radioscout PT 1217</span><span class="L-en">GEArBE Board &middot; Radio Scout PT 1217</span></td>
+    </tr>
+    <tr>
+      <td class="ic">PY5RG</td>
+      <td>Rodrigo &quot;Guismo&quot;</td>
+      <td><span class="L-pt">Diretor de Radioescotismo e Coordenador Radioescotismo/PR</span><span class="L-es">Director de Radioescultismo y Coordinador de Radioescultismo/PR</span><span class="L-en">Radio Scouting Director and Radio Scouting Coordinator (PR)</span></td>
+    </tr>
+    <tr>
+      <td class="ic">PU5MEI</td>
+      <td>Marcos</td>
+      <td><span class="L-pt">Diretor Adjunto de Radioescotismo</span><span class="L-es">Director Adjunto de Radioescultismo</span><span class="L-en">Deputy Radio Scouting Director</span></td>
+    </tr>
+  </table>
+</div>
+
+<div class="p p5">
+  <div class="kv">
+    <div><b>QSL via</b>QRZ.com</div>
+  </div>
+  <p style="margin-top:14px"><span class="L-pt">Obrigado pelo contato! 73</span><span class="L-es">&iexcl;Gracias por el contacto! 73</span><span class="L-en">Thanks for the QSO! 73</span></p>
+</div>
+
+</div>
+</div>
+</body>
+</html>
