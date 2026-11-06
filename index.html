@@ -1,14 +1,13 @@
 <!doctype html>
-<!-- public/index.html - Pagina PY5GBE para iframe no QRZ -->
+<!-- index.html - Pagina PY5GBE (GitHub Pages) para iframe no QRZ - somente HTML + CSS (o QRZ bloqueia JavaScript) -->
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PY5GBE - GEArBE</title>
 <style>
-html,body{margin:0;padding:0;background:#FDF2E6}
-#gbe .p{min-height:520px}
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Barlow:wght@400;600&display=swap');
+html,body{margin:0;padding:0;background:#FDF2E6}
 #gbe{max-width:100%;margin:0 auto;font-family:'Barlow',Arial,sans-serif;color:#2A170D;background:#FDF2E6;border:2px solid #2A170D;line-height:1.5;text-align:left}
 #gbe *{box-sizing:border-box}
 #gbe .r{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
@@ -17,8 +16,7 @@ html,body{margin:0;padding:0;background:#FDF2E6}
 #gbe .logos{display:flex;gap:12px;margin-bottom:14px}
 #gbe .lg1{width:104px;height:104px;border-radius:50%;border:4px solid #FDF2E6;display:block}
 #gbe .lg2{width:104px;height:104px;border-radius:50%;background:#fff;padding:6px;display:block;overflow:hidden}
-#gbe .lg2 img{border-radius:50%}
-#gbe .lg2 img{width:100%;height:100%;display:block}
+#gbe .lg2 img{width:100%;height:100%;display:block;border-radius:50%}
 #gbe .gname{color:#fff;font-weight:600;letter-spacing:3px;font-size:14px;line-height:1.55;margin:0}
 #gbe .call{text-align:right}
 #gbe .cs{font-weight:800;font-size:92px;line-height:.9;color:#2A170D;margin:0}
@@ -29,21 +27,30 @@ html,body{margin:0;padding:0;background:#FDF2E6}
 #gbe .bar img{width:32px;height:22px;border:2px solid transparent;opacity:.55;display:block}
 #gbe .tabs{display:flex;flex-wrap:wrap;gap:6px;padding:18px 24px 0}
 #gbe .tabs label{cursor:pointer;font-family:'Barlow Condensed','Arial Narrow',Impact,sans-serif;font-weight:600;letter-spacing:2px;font-size:16px;text-transform:uppercase;padding:6px 14px;border:2px solid #2A170D;color:#2A170D;background:transparent}
-#gbe .p{display:none;padding:18px 24px 26px;font-size:16px}
-#gbe .p p{margin:0 0 10px}
+#gbe .p{display:none;height:540px;overflow-y:auto;padding:18px 24px 26px;font-size:16px;margin-top:12px;border-top:2px solid #2A170D}
+#gbe .p p{margin:0 0 12px}
+#gbe .p h3{font-family:'Barlow Condensed','Arial Narrow',Impact,sans-serif;font-weight:800;font-size:24px;letter-spacing:1px;margin:0 0 12px;color:#2A170D}
 #gbe .kv{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 #gbe .kv div{flex:1 1 150px;border:2px solid #2A170D;padding:8px 12px;font-size:15px}
 #gbe .kv b{display:block;font-family:'Barlow Condensed','Arial Narrow',Impact,sans-serif;font-weight:600;letter-spacing:2px;font-size:13px;color:#E55A0E;text-transform:uppercase}
+#gbe .foto{float:right;width:170px;margin:0 0 12px 18px;border:2px solid #2A170D;background:#fff;padding:6px}
+#gbe .foto img{width:100%;display:block}
+#gbe .foto .cap{font-size:12px;line-height:1.3;text-align:center;margin-top:6px}
+#gbe .clr{clear:both}
+#gbe .p4{padding-top:0}
 #gbe table{width:100%;border-collapse:collapse;font-size:15px;background:transparent;border:0}
 #gbe th,#gbe td{padding:8px 10px;text-align:left;border:0;border-bottom:1px solid #d9c6b4;vertical-align:top;background:transparent;color:#2A170D}
-#gbe th{font-family:'Barlow Condensed','Arial Narrow',Impact,sans-serif;font-weight:600;letter-spacing:2px;font-size:14px;text-transform:uppercase;border-bottom:2px solid #2A170D}
+#gbe th{position:sticky;top:0;background:#FDF2E6;font-family:'Barlow Condensed','Arial Narrow',Impact,sans-serif;font-weight:600;letter-spacing:2px;font-size:14px;text-transform:uppercase;border-bottom:2px solid #2A170D;padding-top:16px}
 #gbe td.ic{font-family:'Barlow Condensed','Arial Narrow',Impact,sans-serif;font-weight:800;font-size:18px;white-space:nowrap}
-#gbe .map{margin-top:12px;border:2px solid #2A170D;line-height:0}
-#gbe .map iframe{width:100%;height:280px;border:0;display:block}
+#gbe .map{position:relative;display:block;height:280px;overflow:hidden;margin-top:12px;border:2px solid #2A170D;background:#e8e0d8}
+#gbe .tiles{position:absolute;left:50%;top:50%;width:1792px;height:768px;margin-left:-817px;margin-top:-326px;line-height:0;font-size:0}
+#gbe .tiles img{width:256px;height:256px;float:left;display:block}
+#gbe .pin{position:absolute;left:50%;top:50%;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:#E55A0E;border:4px solid #fff;box-shadow:0 0 0 2px #2A170D}
+#gbe .osm{position:absolute;right:0;bottom:0;background:rgba(255,255,255,.85);font-size:11px;line-height:1.4;padding:2px 6px;color:#2A170D}
 #gbe a.lk{color:#E55A0E;font-weight:600;text-decoration:none}
 #gbe .L-es,#gbe .L-en{display:none}
 #gbe-es:checked~.w .L-pt,#gbe-en:checked~.w .L-pt{display:none}
-#gbe-es:checked~.w .L-es,#gbe-en:checked~.w .L-en{display:inline}
+#gbe-es:checked~.w .L-es,#gbe-en:checked~.w .L-en{display:revert}
 #gbe-pt:checked~.w label[for=gbe-pt] img,#gbe-es:checked~.w label[for=gbe-es] img,#gbe-en:checked~.w label[for=gbe-en] img{opacity:1;border-color:#FDF2E6}
 #gbe-t1:checked~.w .p1,#gbe-t2:checked~.w .p2,#gbe-t3:checked~.w .p3,#gbe-t4:checked~.w .p4,#gbe-t5:checked~.w .p5{display:block}
 #gbe-t1:checked~.w label[for=gbe-t1],#gbe-t2:checked~.w label[for=gbe-t2],#gbe-t3:checked~.w label[for=gbe-t3],#gbe-t4:checked~.w label[for=gbe-t4],#gbe-t5:checked~.w label[for=gbe-t5]{background:#E55A0E;color:#fff}
@@ -54,6 +61,7 @@ html,body{margin:0;padding:0;background:#FDF2E6}
 #gbe .morse{color:#2A170D;font-size:16px}
 #gbe .cq{color:#FDF2E6;font-size:18px}
 #gbe .lg1,#gbe .lg2{width:80px;height:80px}
+#gbe .foto{float:none;margin:0 auto 12px}
 }
 </style>
 </head>
@@ -76,81 +84,124 @@ html,body{margin:0;padding:0;background:#FDF2E6}
       <img class="lg1" src="radioescotismo.png" alt="Radioescotismo">
       <div class="lg2"><img src="logo_eppinghaus.png" alt="GEArBE"></div>
     </div>
-    <p class="gname cn">GRUPO ESCOTEIRO DO AR<br>BRIGADEIRO EPPINGHAUS<br>04/PR<br>CURITIBA &middot; PARAN&Aacute;</p>
+    <p class="gname cn">GRUPO ESCOTEIRO DO AR<br>BRIGADEIRO EPPINGHAUS<br>04/PR<br>CURITIBA · PARANÁ</p>
   </div>
   <div class="call">
     <p class="cs cn">PY5GBE</p>
     <p class="morse cn">.--. -.-- ..... --. -... .</p>
-    <p class="cq cn">CQ &middot; QSL &middot; 73</p>
+    <p class="cq cn">CQ · QSL · 73</p>
   </div>
 </div>
 
 <div class="bar">
-  <label for="gbe-pt" title="Portugu&ecirc;s"><img src="https://flagcdn.com/w40/br.png" alt="PT-BR"></label>
-  <label for="gbe-es" title="Espa&ntilde;ol"><img src="https://flagcdn.com/w40/es.png" alt="ES"></label>
+  <label for="gbe-pt" title="Português"><img src="https://flagcdn.com/w40/br.png" alt="PT-BR"></label>
+  <label for="gbe-es" title="Español"><img src="https://flagcdn.com/w40/es.png" alt="ES"></label>
   <label for="gbe-en" title="English"><img src="https://flagcdn.com/w40/us.png" alt="EN"></label>
 </div>
 
 <div class="tabs">
-  <label for="gbe-t1"><span class="L-pt">In&iacute;cio</span><span class="L-es">Inicio</span><span class="L-en">Home</span></label>
+  <label for="gbe-t1"><span class="L-pt">Início</span><span class="L-es">Inicio</span><span class="L-en">Home</span></label>
   <label for="gbe-t2"><span class="L-pt">O Grupo</span><span class="L-es">El Grupo</span><span class="L-en">The Group</span></label>
-  <label for="gbe-t3"><span class="L-pt">Esta&ccedil;&atilde;o</span><span class="L-es">Estaci&oacute;n</span><span class="L-en">Station</span></label>
+  <label for="gbe-t3"><span class="L-pt">Estação</span><span class="L-es">Estación</span><span class="L-en">Station</span></label>
   <label for="gbe-t4"><span class="L-pt">Radioamadores</span><span class="L-es">Radioaficionados</span><span class="L-en">Radio Amateurs</span></label>
   <label for="gbe-t5">QSL</label>
 </div>
 
+<!-- ===== ABA 1: INICIO ===== -->
 <div class="p p1">
   <p>
-    <span class="L-pt">Bem-vindo &agrave; esta&ccedil;&atilde;o do <b>Grupo de Escoteiros do Ar Brigadeiro Eppinghaus &mdash; 4&ordm;/PR</b>, em Curitiba.</span>
-    <span class="L-es">Bienvenido a la estaci&oacute;n del <b>Grupo Scout del Aire Brigadeiro Eppinghaus &mdash; 4&ordm;/PR</b>, en Curitiba, Brasil.</span>
-    <span class="L-en">Welcome to the station of the <b>Brigadeiro Eppinghaus Air Scout Group &mdash; 4th/PR</b>, in Curitiba, Brazil.</span>
+    <span class="L-pt">Bem-vindo à estação do <b>Grupo de Escoteiros do Ar Brigadeiro Eppinghaus — 4º/PR</b>, em Curitiba.</span>
+    <span class="L-es">Bienvenido a la estación del <b>Grupo Scout del Aire Brigadeiro Eppinghaus — 4º/PR</b>, en Curitiba, Brasil.</span>
+    <span class="L-en">Welcome to the station of the <b>Brigadeiro Eppinghaus Air Scout Group — 4th/PR</b>, in Curitiba, Brazil.</span>
   </p>
   <div class="kv">
-    <div><b><span class="L-pt">Funda&ccedil;&atilde;o</span><span class="L-es">Fundaci&oacute;n</span><span class="L-en">Founded</span></b>18.04.1975</div>
-    <div><b><span class="L-pt">Local</span><span class="L-es">Ubicaci&oacute;n</span><span class="L-en">Location</span></b>Bacacheri, Curitiba-PR</div>
+    <div><b><span class="L-pt">Fundação</span><span class="L-es">Fundación</span><span class="L-en">Founded</span></b>18.04.1975</div>
+    <div><b><span class="L-pt">Local</span><span class="L-es">Ubicación</span><span class="L-en">Location</span></b>Bacacheri, Curitiba-PR</div>
     <div><b>Grid</b>GG54jo</div>
-    <div><b><span class="L-pt">Zonas</span><span class="L-es">Zonas</span><span class="L-en">Zones</span></b>CQ 11 &middot; ITU 15</div>
+    <div><b><span class="L-pt">Zonas</span><span class="L-es">Zonas</span><span class="L-en">Zones</span></b>CQ 11 · ITU 15</div>
   </div>
 </div>
 
+<!-- ===== ABA 2: O GRUPO ===== -->
 <div class="p p2">
-  <p>
-    <span class="L-pt">Fundado em 1975, em Curitiba (PR), o Grupo Escoteiro Brigadeiro Eppinghaus tem como miss&atilde;o formar jovens cidad&atilde;os, por meio do m&eacute;todo escoteiro, promovendo valores como lideran&ccedil;a, responsabilidade, respeito ao pr&oacute;ximo e amor &agrave; natureza.</span>
-    <span class="L-es">Fundado en 1975, en Curitiba (PR), el Grupo Scout Brigadeiro Eppinghaus tiene como misi&oacute;n formar j&oacute;venes ciudadanos, a trav&eacute;s del m&eacute;todo scout, promoviendo valores como el liderazgo, la responsabilidad, el respeto al pr&oacute;jimo y el amor a la naturaleza.</span>
-    <span class="L-en">Founded in 1975 in Curitiba (PR), Brazil, the Brigadeiro Eppinghaus Scout Group's mission is to develop young citizens through the Scout Method, promoting values such as leadership, responsibility, respect for others and love of nature.</span>
-  </p>
+  <h3>
+    <span class="L-pt">Grupo de Escoteiros do Ar Brigadeiro Eppinghaus – Curitiba-PR</span>
+    <span class="L-es">Grupo Scout del Aire Brigadeiro Eppinghaus – Curitiba-PR</span>
+    <span class="L-en">Brigadeiro Eppinghaus Air Scout Group – Curitiba-PR</span>
+  </h3>
+
+  <div class="foto">
+    <img src="Brigadeiro-do-Ar%20M%C3%A1rio%20Calmon%20Eppinghaus.png" alt="Brigadeiro-do-Ar Mário Calmon Eppinghaus">
+    <div class="cap"><span class="L-pt">Brigadeiro-do-Ar Mário Calmon Eppinghaus</span><span class="L-es">Brigadier del Aire Mário Calmon Eppinghaus</span><span class="L-en">Air Brigadier Mário Calmon Eppinghaus</span></div>
+  </div>
+
+  <div class="L-pt">
+    <p>Em Curitiba, o Grupo de Escoteiros do Ar Brigadeiro Eppinghaus se destaca como um dos mais tradicionais e ativos. Fundado em 18 de abril de 1975, o grupo leva o nome do Brigadeiro Mário Calmon Eppinghaus, uma figura histórica que se destacou na aviação militar brasileira. Com sede na capital paranaense, o grupo tem uma longa trajetória de sucesso, formando inúmeras gerações de escoteiros e escoteiras comprometidos com os valores do movimento.</p>
+    <p>O Grupo de Escoteiros do Ar Brigadeiro Eppinghaus é conhecido pela qualidade de suas atividades e pelo forte vínculo com a comunidade local. Com uma infraestrutura que permite a realização de diversas atividades ao ar livre, o grupo oferece uma ampla gama de oportunidades para seus membros, desde acampamentos e expedições até projetos sociais e culturais. Além disso, o grupo tem uma forte ênfase na formação de líderes, preparando jovens para serem agentes de mudança em suas comunidades.</p>
+    <p>As atividades no Grupo de Escoteiros do Ar seguem a metodologia escoteira de aprender fazendo, com os jovens assumindo responsabilidades e participando ativamente no planejamento e execução das atividades. Isso promove o desenvolvimento da autonomia, do espírito de equipe e do compromisso social, características que são marcas do escotismo.</p>
+    <p>O escotismo é mais do que um movimento juvenil; é uma filosofia de vida que tem impactado positivamente milhões de jovens ao redor do mundo e no Brasil. No Grupo Escoteiro do Ar Brigadeiro Eppinghaus, em Curitiba, essa missão continua viva e forte, preparando as novas gerações para enfrentarem os desafios do futuro com coragem, responsabilidade e solidariedade. Em um mundo cada vez mais complexo e interconectado, o escotismo se mantém relevante, ajudando a formar cidadãos que, além de conscientes de seus deveres, são protagonistas na construção de um mundo melhor.</p>
+  </div>
+  <div class="L-es">
+    <p>En Curitiba, el Grupo Scout del Aire Brigadeiro Eppinghaus se destaca como uno de los más tradicionales y activos. Fundado el 18 de abril de 1975, el grupo lleva el nombre del Brigadier Mário Calmon Eppinghaus, una figura histórica que se destacó en la aviación militar brasileña. Con sede en la capital de Paraná, el grupo tiene una larga trayectoria de éxito, formando innumerables generaciones de scouts comprometidos con los valores del movimiento.</p>
+    <p>El Grupo Scout del Aire Brigadeiro Eppinghaus es conocido por la calidad de sus actividades y por su fuerte vínculo con la comunidad local. Con una infraestructura que permite realizar diversas actividades al aire libre, el grupo ofrece una amplia gama de oportunidades a sus miembros, desde campamentos y expediciones hasta proyectos sociales y culturales. Además, el grupo pone un fuerte énfasis en la formación de líderes, preparando a los jóvenes para ser agentes de cambio en sus comunidades.</p>
+    <p>Las actividades del Grupo Scout del Aire siguen la metodología scout de aprender haciendo, con los jóvenes asumiendo responsabilidades y participando activamente en la planificación y ejecución de las actividades. Esto promueve el desarrollo de la autonomía, del espíritu de equipo y del compromiso social, características que son marcas del escultismo.</p>
+    <p>El escultismo es más que un movimiento juvenil; es una filosofía de vida que ha impactado positivamente a millones de jóvenes en todo el mundo y en Brasil. En el Grupo Scout del Aire Brigadeiro Eppinghaus, en Curitiba, esta misión sigue viva y fuerte, preparando a las nuevas generaciones para enfrentar los desafíos del futuro con valentía, responsabilidad y solidaridad. En un mundo cada vez más complejo e interconectado, el escultismo sigue siendo relevante, ayudando a formar ciudadanos que, además de conscientes de sus deberes, son protagonistas en la construcción de un mundo mejor.</p>
+  </div>
+  <div class="L-en">
+    <p>In Curitiba, the Brigadeiro Eppinghaus Air Scout Group stands out as one of the most traditional and active groups. Founded on April 18, 1975, the group is named after Air Brigadier Mário Calmon Eppinghaus, a historic figure who distinguished himself in Brazilian military aviation. Based in the capital of Paraná, the group has a long record of success, shaping countless generations of Scouts committed to the values of the movement.</p>
+    <p>The Brigadeiro Eppinghaus Air Scout Group is known for the quality of its activities and its strong ties to the local community. With facilities that support a wide range of outdoor activities, the group offers its members many opportunities, from camps and expeditions to social and cultural projects. The group also places a strong emphasis on leadership training, preparing young people to be agents of change in their communities.</p>
+    <p>Activities in the Air Scout Group follow the Scout method of learning by doing, with young people taking on responsibilities and actively planning and carrying out activities. This fosters autonomy, team spirit and social commitment, the hallmarks of Scouting.</p>
+    <p>Scouting is more than a youth movement; it is a philosophy of life that has positively impacted millions of young people around the world and in Brazil. At the Brigadeiro Eppinghaus Air Scout Group in Curitiba, this mission remains alive and strong, preparing new generations to face the challenges of the future with courage, responsibility and solidarity. In an increasingly complex and interconnected world, Scouting remains relevant, helping to shape citizens who are not only aware of their duties but also active builders of a better world.</p>
+  </div>
+
+  <div class="clr"></div>
   <div class="kv">
-    <div><b><span class="L-pt">Endere&ccedil;o</span><span class="L-es">Direcci&oacute;n</span><span class="L-en">Address</span></b>Rua Sargento Alpendre, 12 &middot; Bacacheri<br>Curitiba-PR &middot; CEP 82515-120 &middot; <span class="L-pt">Brasil</span><span class="L-es">Brasil</span><span class="L-en">Brazil</span></div>
-    <div><b><span class="L-pt">Coordenadas</span><span class="L-es">Coordenadas</span><span class="L-en">Coordinates</span></b>25&deg; 24' 06&quot; S &middot; 49&deg; 13' 45&quot; W<br>-25.40178, -49.22921</div>
+    <div><b><span class="L-pt">Endereço</span><span class="L-es">Dirección</span><span class="L-en">Address</span></b>Rua Sargento Alpendre, 12 · Bacacheri<br>Curitiba-PR · CEP 82515-120 · <span class="L-pt">Brasil</span><span class="L-es">Brasil</span><span class="L-en">Brazil</span></div>
+    <div><b><span class="L-pt">Coordenadas</span><span class="L-es">Coordenadas</span><span class="L-en">Coordinates</span></b>25° 24' 06" S · 49° 13' 45" W<br>-25.40178, -49.22921</div>
   </div>
-  <div class="map">
-    <iframe src="https://maps.google.com/maps?q=-25.401779,-49.229207&amp;z=16&amp;output=embed" loading="lazy" title="Mapa GEArBE"></iframe>
-  </div>
-  <p style="margin-top:8px"><a class="lk" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=-25.401779,-49.229207"><span class="L-pt">Abrir no Google Maps</span><span class="L-es">Abrir en Google Maps</span><span class="L-en">Open in Google Maps</span> &rarr;</a></p>
+
+  <!-- Mapa estatico (tiles OpenStreetMap, zoom 17) - funciona sem JavaScript -->
+  <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=-25.401779,-49.229207" target="_blank" rel="noopener" title="Google Maps">
+    <span class="tiles">
+      <img src="https://tile.openstreetmap.org/17/47609/75102.png" alt=""><img src="https://tile.openstreetmap.org/17/47610/75102.png" alt=""><img src="https://tile.openstreetmap.org/17/47611/75102.png" alt=""><img src="https://tile.openstreetmap.org/17/47612/75102.png" alt=""><img src="https://tile.openstreetmap.org/17/47613/75102.png" alt=""><img src="https://tile.openstreetmap.org/17/47614/75102.png" alt=""><img src="https://tile.openstreetmap.org/17/47615/75102.png" alt="">
+      <img src="https://tile.openstreetmap.org/17/47609/75103.png" alt=""><img src="https://tile.openstreetmap.org/17/47610/75103.png" alt=""><img src="https://tile.openstreetmap.org/17/47611/75103.png" alt=""><img src="https://tile.openstreetmap.org/17/47612/75103.png" alt=""><img src="https://tile.openstreetmap.org/17/47613/75103.png" alt=""><img src="https://tile.openstreetmap.org/17/47614/75103.png" alt=""><img src="https://tile.openstreetmap.org/17/47615/75103.png" alt="">
+      <img src="https://tile.openstreetmap.org/17/47609/75104.png" alt=""><img src="https://tile.openstreetmap.org/17/47610/75104.png" alt=""><img src="https://tile.openstreetmap.org/17/47611/75104.png" alt=""><img src="https://tile.openstreetmap.org/17/47612/75104.png" alt=""><img src="https://tile.openstreetmap.org/17/47613/75104.png" alt=""><img src="https://tile.openstreetmap.org/17/47614/75104.png" alt=""><img src="https://tile.openstreetmap.org/17/47615/75104.png" alt="">
+    </span>
+    <span class="pin"></span>
+    <span class="osm">© OpenStreetMap contributors</span>
+  </a>
+  <p style="margin-top:8px"><a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=-25.401779,-49.229207" target="_blank" rel="noopener"><span class="L-pt">Abrir no Google Maps</span><span class="L-es">Abrir en Google Maps</span><span class="L-en">Open in Google Maps</span> →</a></p>
 </div>
 
+<!-- ===== ABA 3: ESTACAO ===== -->
 <div class="p p3">
   <div class="kv">
-    <div><b><span class="L-pt">R&aacute;dio</span><span class="L-es">Radio</span><span class="L-en">Transceiver</span></b>Yaesu FT-857D</div>
+    <div><b><span class="L-pt">Rádio</span><span class="L-es">Radio</span><span class="L-en">Transceiver</span></b>Yaesu FT-857D</div>
     <div><b><span class="L-pt">Antena</span><span class="L-es">Antena</span><span class="L-en">Antenna</span></b><span class="L-pt">Dipolo 10 m, 40 m e 80 m</span><span class="L-es">Dipolo 10 m, 40 m y 80 m</span><span class="L-en">Dipole 10 m, 40 m and 80 m</span></div>
   </div>
 </div>
 
+<!-- ===== ABA 4: RADIOAMADORES =====
+     Para incluir alguem: copie um bloco <tr>...</tr> e cole antes de </tbody>.
+     A lista rola dentro da aba; o cabecalho fica fixo. -->
 <div class="p p4">
   <table>
+    <thead>
     <tr>
       <th><span class="L-pt">Indicativo</span><span class="L-es">Indicativo</span><span class="L-en">Callsign</span></th>
       <th><span class="L-pt">Nome</span><span class="L-es">Nombre</span><span class="L-en">Name</span></th>
-      <th><span class="L-pt">Fun&ccedil;&atilde;o</span><span class="L-es">Funci&oacute;n</span><span class="L-en">Role</span></th>
+      <th><span class="L-pt">Função</span><span class="L-es">Función</span><span class="L-en">Role</span></th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
       <td class="ic">PU4MVO</td>
-      <td>Marco V&eacute;io</td>
-      <td><span class="L-pt">Diretoria GEArBE &middot; Radioescotista PT 1217</span><span class="L-es">Directiva GEArBE &middot; Radioscout PT 1217</span><span class="L-en">GEArBE Board &middot; Radio Scout PT 1217</span></td>
+      <td>Marco Véio</td>
+      <td><span class="L-pt">Diretoria GEArBE · Radioescotista PT 1217</span><span class="L-es">Directiva GEArBE · Radioscout PT 1217</span><span class="L-en">GEArBE Board · Radio Scout PT 1217</span></td>
     </tr>
     <tr>
       <td class="ic">PY5RG</td>
-      <td>Rodrigo &quot;Guismo&quot;</td>
+      <td>Rodrigo "Guismo"</td>
       <td><span class="L-pt">Diretor de Radioescotismo e Coordenador Radioescotismo/PR</span><span class="L-es">Director de Radioescultismo y Coordinador de Radioescultismo/PR</span><span class="L-en">Radio Scouting Director and Radio Scouting Coordinator (PR)</span></td>
     </tr>
     <tr>
@@ -160,7 +211,7 @@ html,body{margin:0;padding:0;background:#FDF2E6}
     </tr>
     <tr>
       <td class="ic">PY5ENA</td>
-      <td>Eduardo Am&aacute;lio de Souza</td>
+      <td>Eduardo Amálio de Souza</td>
       <td><span class="L-pt">Radioescotista</span><span class="L-es">Radioscout</span><span class="L-en">Radio Scout</span></td>
     </tr>
     <tr>
@@ -175,7 +226,7 @@ html,body{margin:0;padding:0;background:#FDF2E6}
     </tr>
     <tr>
       <td class="ic">PU5OWL</td>
-      <td>Aldo</td>
+      <td>Aldo Luis Delattre Lopau</td>
       <td></td>
     </tr>
     <tr>
@@ -183,14 +234,16 @@ html,body{margin:0;padding:0;background:#FDF2E6}
       <td>Eduarda</td>
       <td><span class="L-pt">Pioneira</span><span class="L-es">Rover</span><span class="L-en">Rover Scout</span></td>
     </tr>
+    </tbody>
   </table>
 </div>
 
+<!-- ===== ABA 5: QSL ===== -->
 <div class="p p5">
   <div class="kv">
     <div><b>QSL via</b>QRZ.com</div>
   </div>
-  <p style="margin-top:14px"><span class="L-pt">Obrigado pelo contato! 73</span><span class="L-es">&iexcl;Gracias por el contacto! 73</span><span class="L-en">Thanks for the QSO! 73</span></p>
+  <p style="margin-top:14px"><span class="L-pt">Obrigado pelo contato! 73</span><span class="L-es">¡Gracias por el contacto! 73</span><span class="L-en">Thanks for the QSO! 73</span></p>
 </div>
 
 </div>
